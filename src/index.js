@@ -66,14 +66,12 @@ app.put('/clients/:id', (request, response) => {
 app.delete('/clients/:id', (request, response) => {
     const {id} = request.params;
     const index = clients.findIndex(value => value.id == id);
-    if(index !== -1){
+    if(index == -1){
         response.status(400).send();
     }else{
         clients.splice(index, 1);
         response.status(204).send();
     }
-
-
   
 })
 app.listen(3000);
